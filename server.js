@@ -1,9 +1,10 @@
 var dgram = require('dgram');
 var server = dgram.createSocket('udp4');
 var Sammy = require('./sammy');
+var config = require('./config');
 
-var PORT = 3000;
-var HOST = '192.168.0.17';
+var PORT = config.port;
+var HOST = config.host;
 var sammy = new Sammy();
 
 server.on('listening', function () {

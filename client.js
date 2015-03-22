@@ -1,10 +1,12 @@
 var dgram = require('dgram');
-
-var PORT = 3000;
-var HOST = '192.168.0.17';
-
 var client = dgram.createSocket('udp4');
 var keypress = require('keypress');
+var config = require('./config');
+
+var PORT = config.port;
+var HOST = config.host;
+
+
 
 // make `process.stdin` begin emitting "keypress" events
 keypress(process.stdin);

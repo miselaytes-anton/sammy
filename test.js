@@ -1,4 +1,5 @@
-var sammy = new require('./sammy')();
+var Sammy = require('./sammy');
+sammy = new Sammy();
 
 var degree = parseInt(process.argv[2]) ||0;
 
