@@ -1,0 +1,22 @@
+{
+  "name": "sammy",
+  "version": "1.0.0",
+  "description": "raspberry pi node js experiments",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miselaytes-anton/sammy.git"
+  },
+  "author": "Anton Miselaytes <anton@wearereasonablepeople.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miselaytes-anton/sammy/issues"
+  },
+  "homepage": "https://github.com/miselaytes-anton/sammy",
+  "dependencies": {
+    "keypress": "^0.2.1"
+  }
+}
