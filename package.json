@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/miselaytes-anton/sammy",
   "dependencies": {
+    "async": "^0.9.0",
     "keypress": "^0.2.1",
     "rpio": "^0.4.3"
   }

@@ -1,4 +1,5 @@
 var rpio = require('rpio');
+var async = require('async');
 
 function Sammy(options){
     var self = this;
@@ -63,10 +64,19 @@ function Sammy(options){
             rpio.write(m4, rpio.HIGH);
         }
         // assume 30 deg is 100 ms
-        var delay = 100 *(Math.floor(Math.abs(deg)/30));
-        self.timeout = setTimeout(function(){
-            stop();
-        }, delay);
+        //var delay = 100 *(Math.floor(Math.abs(deg)/30));
+        var delay = 100;
+        var numTimes = (Math.floor(Math.abs(deg)/30));
+
+        async.timesSeries(numTimes, function(n, next){
+            self.timeout = setTimeout(function(){
+                stop();
+                next();
+            }, delay);
+        }, function(err, users) {
+            console.log('finished');
+        });
+
     }
     function stop(){
         rpio.write(m1, rpio.LOW);
