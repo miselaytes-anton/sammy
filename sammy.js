@@ -70,6 +70,7 @@ function Sammy(options){
 
         async.timesSeries(numTimes, function(n, next){
             self.timeout = setTimeout(function(){
+                console.log('n');
                 stop();
                 next();
             }, delay);
