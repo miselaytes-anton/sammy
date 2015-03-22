@@ -69,6 +69,7 @@ function Sammy(options){
         var numTimes = (Math.floor(Math.abs(deg)/30));
 
         async.timesSeries(numTimes, function(n, next){
+            clear();
             self.timeout = setTimeout(function(){
                 console.log('n');
                 stop();
@@ -82,6 +83,11 @@ function Sammy(options){
     function stop(){
         rpio.write(m1, rpio.LOW);
         rpio.write(m4, rpio.LOW);
+    }
+    function clear(){
+        if (self.timeout){
+            clearTimeout(self.timeout);
+        }
     }
     self.commands = {
         turn: turn,
