@@ -42,6 +42,10 @@ function Sammy(options){
         else if ( command === 'straight'  ){
             straight();
         }
+        self.timeout = setTimeout(function(){
+            stop();
+        }, 500);
+
     };
 
     function straight(){
@@ -53,34 +57,32 @@ function Sammy(options){
         if (!deg){
             return;
         }
-        // + -> right
-        if (deg > 0){
-            rpio.write(m1, rpio.HIGH);
-            rpio.write(m4, rpio.LOW);
-        }
-        // - -> left
-        else{
-            rpio.write(m1, rpio.LOW);
-            rpio.write(m4, rpio.HIGH);
-        }
-        // assume 30 deg is 100 ms
-        //var delay = 100 *(Math.floor(Math.abs(deg)/30));
-        var delay = 100;
-        var numTimes = (Math.floor(Math.abs(deg)/30));
+        var direction = null;
 
-        async.timesSeries(numTimes, function(n, next){
-            clear();
-            self.timeout = setTimeout(function(){
-                console.log('n');
-                stop();
-                next();
-            }, delay);
-        }, function(err, users) {
-            console.log('finished');
-        });
+        function action(deg){
+            console.log('action');
+            // + -> right
+            if (deg > 0){
+                rpio.write(m1, rpio.HIGH);
+                rpio.write(m4, rpio.LOW);
+            }
+            // - -> left
+            else{
+                rpio.write(m1, rpio.LOW);
+                rpio.write(m4, rpio.HIGH);
+            }
+        }
+
+        // assume 30 deg is 100 ms
+        var delay = 100 *(Math.floor(Math.abs(deg)/30));
+        action();
+        self.timeout = setTimeout(function(){
+            stop();
+        }, delay);
 
     }
     function stop(){
+        console.log('stop');
         rpio.write(m1, rpio.LOW);
         rpio.write(m4, rpio.LOW);
     }
