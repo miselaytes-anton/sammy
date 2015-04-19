@@ -223,13 +223,20 @@ var speaker = new Speaker({
 // PCM data from stdin gets piped into the speaker
 
 var Readable = require('stream').Readable;
-var rs = Readable();
+var rs = Readable({ objectMode: true });
 rs._read = function () {
     rs.push(new Buffer(res));
 };
 
 rs.pipe(speaker);
 
+rs.on('error', function(err){
+    //console.log(err);
+});
+speaker.on('error', function(err){
+    rs.unpipe();
+    rs.pipe(speaker);
+});
 setInterval(function(){
     res = randomChords(3);
 }, 2500);
