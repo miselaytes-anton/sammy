@@ -21,13 +21,8 @@
     "i": "^0.3.3",
     "keypress": "^0.2.1",
     "node-core-audio": "^0.4.1",
-    "npm": "^2.7.6",
     "rpio": "^0.4.3",
-    "sound-effect-manager": "^1.0.0",
-    "soundbank-oscillator": "^1.1.1",
     "speaker": "^0.2.4",
-    "streamifier": "^0.1.1",
-    "tonegenerator": "0.0.2",
-    "waveheader": "0.0.2"
+    "tonegenerator": "0.0.2"
   }
 }
