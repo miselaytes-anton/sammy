@@ -19,6 +19,7 @@
   "dependencies": {
     "async": "^0.9.0",
     "i": "^0.3.3",
+    "jspack": "0.0.4",
     "keypress": "^0.2.1",
     "lodash": "^3.7.0",
     "node-core-audio": "^0.4.1",

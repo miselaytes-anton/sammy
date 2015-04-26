@@ -1,3 +1,3 @@
-var xloborg = require('./lib/XLoBorg.js');
+var xloborg = require('./lib/xloborg.js');
 
 xloborg.test();
