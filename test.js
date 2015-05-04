@@ -9,12 +9,14 @@ var _ = require('lodash'),
 
 registerExit();
 //console.log(chords(2));
-player.play(sequence(5));
+player.play(chords(3));
+
 
 setInterval(function(){
     //player.stop();
-    player.play(sequence(5));
+    player.play(chords(3));
 },1000);
+
 
 
 
