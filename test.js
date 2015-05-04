@@ -9,13 +9,13 @@ var _ = require('lodash'),
 
 registerExit();
 //console.log(chords(2));
-player.play(chords(3));
+player.play(chords(2));
 
 
 setInterval(function(){
     //player.stop();
-    player.play(chords(3));
-},1000);
+    player.play(chords(10));
+},3000);
 
 
 
