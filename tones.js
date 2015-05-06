@@ -4,6 +4,7 @@ var xloborg = require('./lib/xloborg'),
     chords = require('./lib/player').chords,
     sequence = require('./lib/player').sequence;
 
+var interval = process.argv[2];
 async.series([
     function (cb) {
         xloborg.init(cb);
@@ -12,13 +13,13 @@ async.series([
         async.forever(function (cb) {
             xloborg.readCompass(function (err, arr) {
                 var soundsArr = prepare(arr);
-                var sound = player.sequence(soundsArr[0], soundsArr[1], soundsArr[2]);
+                var sound = sequence(soundsArr[0], soundsArr[1], soundsArr[2]);
                 if (err) {
                     cb(err);
                 }
                 else {
                     player.play(sound);
-                    setTimeout(cb, 3000);
+                    setTimeout(cb, interval || 3000);
                 }
             });
         }, function (err) {

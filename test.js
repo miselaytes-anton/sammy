@@ -9,14 +9,24 @@ var _ = require('lodash'),
 
 registerExit();
 //console.log(chords(2));
-player.play(chords(2));
+player.play(chords(20));
 
 
 setInterval(function(){
     //player.stop();
-    player.play(chords(10));
+    player.play(chords(20));
 },3000);
-
+//todo:
+/*
+- check if sox works on raspberry
+try baudio on raspberry
+think of hot the controls should work and how the audio should be generated
+try with a different buffer length
+transform streams
+publish xloborg
+in fact should just decide what needs to be done exactly and then adjust read function accordingly
+try flocking
+ */
 
 
 
